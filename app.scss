@@ -1,0 +1,204 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #294b7d;
+}
+
+.calculator {
+  box-shadow: inset 3px 16px 13px 0px rgba(14, 21, 65, 0.25);
+  border-radius: 25px;
+}
+
+.shadow {
+  box-shadow: 2px 3px 4px 3px rgba(14, 21, 65, 0.25);
+  border-radius: 25px;
+}
+
+.formula-screen {
+  font-size: 16px;
+  color: #00ffd2;
+  text-align: right;
+  width: 350px;
+  padding: 0 15px 5px 15px;
+  overflow: hidden;
+  min-height: 60px;
+  border-top: 1px solid #0fb2b2;
+  border-radius: 25px 25px 0 0;
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: flex-end;
+  text-shadow: 3px 3px 3px #11214b8f;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+
+.output-screen {
+  width: 350px;
+  font-size: 22px;
+  color: #00ffd2;
+  text-align: right;
+  line-height: 35px;
+  height: 50px;
+  margin-right: 4px;
+  padding-top: 14px;
+  padding-right: 13px;
+  height: 60px;
+  border-right: 1px solid #0a7e7e;
+  text-shadow: 3px 3px 3px #11214b8f;
+  margin: 0px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-areas:
+    'clear clear erase equals'
+    'seven eight nine divide'
+    'four five six  multiply'
+    'one two three subtract'
+    'decimal zero  mod add';
+  width: 350px;
+  height: 350px;
+}
+
+.number {
+  background: #109595ad;
+  
+  &:hover {
+    background-color: #0e9d9dad;
+  }
+  &:active {
+    background-color: #0e8f8fad;
+  }
+}
+
+.divide {
+  grid-area: divide;   
+  border-right: 1px solid #0a7e7e;
+}
+
+.multiply {
+  grid-area: multiply;
+  border-right: 1px solid #0a7e7e;
+}
+
+.subtract {
+  grid-area: subtract;
+  border-right: 1px solid #0a7e7e;
+}
+
+.add {
+  grid-area: add;
+  border-right: 1px solid #0a7e7e;
+  border-bottom: 1px solid #0fb2b2;
+  border-radius: 0 0 25px 0;
+}
+
+.mod {
+  grid-area: mod;
+  border-bottom: 1px solid #0fb2b2;
+}
+
+.zero {
+  grid-area: zero;
+  border-bottom: 1px solid #0fb2b2
+}
+
+.one {
+  grid-area: one;
+  border-bottom: none;
+}
+
+.two {
+  grid-area: two;
+  border-bottom: none;
+}
+
+.three {
+  grid-area: three;
+  border-bottom: none;
+}
+
+.four {grid-area: four;}
+
+.five {
+  grid-area: five;
+  border-bottom: none;
+}
+
+.six {grid-area: six;}
+
+.seven {grid-area: seven;}
+
+.eight {grid-area: eight;}
+
+.nine {
+  grid-area: nine;
+  border-bottom: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  color: aliceblue;
+  background: darkcyan;
+
+  &:hover {
+    background-color: #00a5a529;
+  }
+  &:active {
+    background-color: #0072724a;
+  }
+}
+
+.equals {
+  grid-area: equals;
+  background: #09a0a0;
+  border-top: 1px solid #0a7e7e; 
+  border-right: 1px solid #0a7e7e;
+  
+  &:hover {
+    background-color: #0ab0b0;
+  }
+  &:active {
+    background-color: #099191;
+  }
+}
+
+.clear {
+  grid-area: clear;
+  background: #0d8d8d00;
+  border-top: 1px solid #0a7e7e;
+  text-shadow: 3px 3px 3px #11214b8f;
+}
+
+.operator {
+  background: #09a0a01a;
+  text-shadow: 3px 3px 3px #11214b8f;
+}
+
+.decimal {
+  grid-area: decimal;
+  background: #09a0a01a;
+  border-radius: 0 0 0 25px;
+  border-bottom: 1px solid #0fb2b2;
+  text-shadow: 3px 3px 3px #11214b8f;
+}
+
+.erase {
+  grid-area: erase;
+  background: #09a0a01a;
+  border-top: 1px solid #0a7e7e;
+  text-shadow: 3px 3px 3px #11214b8f;
+}
+
+.active {
+  background-color: #0e8f8fad;
+}
