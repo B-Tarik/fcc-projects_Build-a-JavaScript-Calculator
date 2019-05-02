@@ -3,7 +3,7 @@ import Buttons from "./buttons";
 
 import './app.scss';
 
-class App extends Component {
+class App extends React.Component {
   state = {
     formulaScreen: '',
     outputScreen: '0',
@@ -14,21 +14,18 @@ class App extends Component {
   handleEvaluate = () => {
     let {outputScreen, formulaScreen} = this.state;
     let str, err;
-    console.log('before outputScreen ', outputScreen)
     outputScreen = numeral(outputScreen).value();
-    console.log('after outputScreen ', outputScreen)
     if(isNaN(parseFloat(outputScreen))) str = formulaScreen.slice(0,-1).replace(/x/g, '*');
     else str = (formulaScreen+outputScreen).replace(/x/g, '*')
-    console.log(str)
     try {
       outputScreen = Math.round(1000000000000 * eval(str)) / 1000000000000;
-    } catch(error){
+    } catch(e){
       outputScreen = ''
-      err = error.toString()
+      err = e.toString()
     }
-    console.log('before', outputScreen)
-    outputScreen = numeral(outputScreen).format('0,0.[0000]');
-    console.log('after', outputScreen)
+    /e/.test(outputScreen)
+      ? outputScreen = numeral(outputScreen).format('0,0.[0000]e+0')
+      : outputScreen = numeral(outputScreen).format('0,0.[0000]');
     this.setState({
       outputScreen,
       formulaScreen: err || '',
@@ -65,6 +62,7 @@ class App extends Component {
     outputScreen = outputScreen + number
     this.setState({outputScreen, evaluate: false})
   }
+  
   
   initialize = () => {
     this.setState({outputScreen: '0', formulaScreen: '', evaluate: false})
