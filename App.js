@@ -3,7 +3,7 @@ import Buttons from "./buttons";
 
 import './app.scss';
 
-class App extends React.Component {
+class App extends Component {
   state = {
     formulaScreen: '',
     outputScreen: '0',
